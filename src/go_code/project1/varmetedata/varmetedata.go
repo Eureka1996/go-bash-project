@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go-bash-project/src/go_code/project1/pointType"
+	//"go_code/project1/pointType"
 	"unsafe"
 )
 
@@ -21,5 +21,5 @@ func main() {
 	var info string = fmt.Sprintf("名称：%s，年龄：%d，价格：%f，是否结婚：%t", name, age, price, married)
 	fmt.Println(info)
 
-	fmt.Println("heroName:" + pointType.HeroName)
+	//fmt.Println("heroName:" + pointType.HeroName)
 }
