@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"project2/src/go_code/project2/utils/arrayUtils"
@@ -56,9 +57,9 @@ func arrayForeachTest() {
 
 // 结构体
 type Aninal struct {
-	Name  string
-	Age   int
-	Color string
+	Name  string `json:"name"`
+	Age   int    `json:"age"`
+	Color string `json:"color"`
 }
 
 func main() {
@@ -71,5 +72,13 @@ func main() {
 	aninal.Color = "大红色"
 
 	fmt.Println(aninal)
+
+	marshal, err := json.Marshal(aninal)
+
+	if err == nil {
+		fmt.Println("json字符串：", string(marshal))
+	} else {
+		fmt.Println(err)
+	}
 
 }
