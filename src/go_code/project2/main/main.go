@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"project2/src/go_code/project2/entities"
 	"project2/src/go_code/project2/utils/arrayUtils"
 	"strings"
 )
@@ -80,5 +81,7 @@ func main() {
 	} else {
 		fmt.Println(err)
 	}
+
+	entities.ComputerTest1()
 
 }
