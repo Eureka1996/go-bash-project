@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"project2/src/go_code/project2/entities"
+	"project2/src/go_code/project2/mysort"
 	"project2/src/go_code/project2/utils/arrayUtils"
 	"strings"
 )
@@ -82,6 +82,7 @@ func main() {
 		fmt.Println(err)
 	}
 
-	entities.ComputerTest1()
+	//entities.ComputerTest1()
 
+	mysort.SortIntTest()
 }
