@@ -83,6 +83,7 @@ func main() {
 	}
 
 	//entities.ComputerTest1()
-
+	// struct排序
 	mysort.SortIntTest()
+	mysort.SortStructTest()
 }
