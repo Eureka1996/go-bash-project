@@ -16,3 +16,19 @@ func ComputerTest1() {
 	phone := &Phone{}
 	computer.Working(phone)
 }
+
+func ComputerTest2() {
+	fmt.Println("测试类型的向下转换###############")
+	var usb Usb
+	var phone *Phone = &Phone{}
+	usb = phone
+
+	usb.Start()
+
+	phone2, turnSuccess := usb.(*Phone)
+	if !turnSuccess {
+		fmt.Println("类型转换失败usb.(*Phone)")
+		return
+	}
+	phone2.Study()
+}

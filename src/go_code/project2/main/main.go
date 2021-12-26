@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"project2/src/go_code/project2/entities"
 	"project2/src/go_code/project2/mysort"
 	"project2/src/go_code/project2/utils/arrayUtils"
 	"strings"
@@ -82,7 +83,12 @@ func main() {
 		fmt.Println(err)
 	}
 
-	//entities.ComputerTest1()
+	// 接口实现
+	fmt.Println("----------接口实现--------------")
+	entities.ComputerTest1()
+	entities.ComputerTest2()
+
+	fmt.Println("--------Struct排序-------")
 	// struct排序
 	mysort.SortIntTest()
 	mysort.SortStructTest()
