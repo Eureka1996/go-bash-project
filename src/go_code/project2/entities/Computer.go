@@ -31,4 +31,8 @@ func ComputerTest2() {
 		return
 	}
 	phone2.Study()
+
+	if phone3, flag := usb.(*Phone); flag {
+		phone3.Study()
+	}
 }

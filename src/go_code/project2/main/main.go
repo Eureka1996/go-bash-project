@@ -4,9 +4,11 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"project2/src/go_code/project2/demo"
 	"project2/src/go_code/project2/entities"
 	"project2/src/go_code/project2/mysort"
 	"project2/src/go_code/project2/utils/arrayUtils"
+	"project2/src/go_code/project2/utils/fileUtils"
 	"strings"
 )
 
@@ -92,4 +94,18 @@ func main() {
 	// struct排序
 	mysort.SortIntTest()
 	mysort.SortStructTest()
+
+	fmt.Println("----------判断参数类型-----------")
+	demo.TypeJudge(32, 32.32, "32", entities.Phone{Name: "vivo"}, &entities.Phone{Name: "华为"})
+
+	fmt.Println("----------文件操作--------------")
+
+	fileName := "/Users/bytedance/myProject/go-bash-project/src/resource/properties.conf"
+	fileUtils.GetConfig(fileName)
+	fileUtils.GetConfigOneTime(fileName)
+	fileName2 := "/Users/bytedance/myProject/go-bash-project/src/resource/wufuqiang.conf"
+	//fileUtils.WriteFile(fileName2)
+	exist, err := fileUtils.PathExist(fileName2)
+	fmt.Println("\n", exist, err)
+
 }

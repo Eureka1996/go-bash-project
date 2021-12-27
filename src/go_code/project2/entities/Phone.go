@@ -3,6 +3,7 @@ package entities
 import "fmt"
 
 type Phone struct {
+	Name string
 }
 
 func (phone *Phone) Start() {
