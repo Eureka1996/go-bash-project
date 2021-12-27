@@ -4,11 +4,13 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"os"
 	"project2/src/go_code/project2/demo"
 	"project2/src/go_code/project2/entities"
 	"project2/src/go_code/project2/mysort"
 	"project2/src/go_code/project2/utils/arrayUtils"
 	"project2/src/go_code/project2/utils/fileUtils"
+	"project2/src/go_code/project2/utils/flagUtils"
 	"strings"
 )
 
@@ -67,8 +69,14 @@ type Aninal struct {
 }
 
 func main() {
-	fmt.Println("wufuqiang")
-	fmt.Println("maoyujiao")
+
+	fmt.Println("wufuqiang---len(os.Args):", len(os.Args))
+	fmt.Println("--------命令行参数--------------")
+	for _, value := range os.Args {
+		fmt.Println("命令行参数：", value)
+	}
+
+	flagUtils.ParseArgs()
 
 	var aninal Aninal
 	aninal.Name = "小动物"
@@ -100,12 +108,17 @@ func main() {
 
 	fmt.Println("----------文件操作--------------")
 
-	fileName := "/Users/bytedance/myProject/go-bash-project/src/resource/properties.conf"
+	fileName := "src/resource/properties.conf"
 	fileUtils.GetConfig(fileName)
 	fileUtils.GetConfigOneTime(fileName)
-	fileName2 := "/Users/bytedance/myProject/go-bash-project/src/resource/wufuqiang.conf"
-	//fileUtils.WriteFile(fileName2)
+	fileName2 := "src/resource/wufuqiang.conf"
+	fileUtils.WriteFile(fileName2)
 	exist, err := fileUtils.PathExist(fileName2)
 	fmt.Println("\n", exist, err)
+
+	readFilePath := "src/resource/R-C.jpeg"
+	writeFilePath := "src/resource/R-C_copy.jpeg"
+
+	fileUtils.MyCopy(readFilePath, writeFilePath)
 
 }

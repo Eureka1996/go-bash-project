@@ -28,6 +28,9 @@ func GetConfig(fileName string) {
 		if err == io.EOF { // io.EOF表示文件的末尾
 			fmt.Println("file last line content:", str)
 			break
+		} else if err != nil {
+			fmt.Println("读取文件错误。")
+			break
 		}
 		fmt.Print("file content:", str)
 	}
@@ -67,5 +70,29 @@ func PathExist(filePath string) (bool, error) {
 		return false, nil
 	}
 	return false, nil
+
+}
+
+func MyCopy(readFilePath string, writeFilePath string) {
+	readFile, err := os.Open(readFilePath)
+	defer readFile.Close()
+	if err != nil {
+		fmt.Println("打开文件失败。err：", err)
+		return
+	}
+
+	reader := bufio.NewReader(readFile)
+
+	writeFile, openWriteFileErr := os.OpenFile(writeFilePath, os.O_WRONLY|os.O_CREATE, 0666)
+	defer writeFile.Close()
+
+	if openWriteFileErr != nil {
+		fmt.Println("打开目标文件失败，err:", openWriteFileErr)
+		return
+	}
+
+	writer := bufio.NewWriter(writeFile)
+
+	io.Copy(writer, reader)
 
 }
