@@ -1,5 +1,7 @@
 package firstGoroutine
 
-func main() {
+import "fmt"
 
+func main() {
+	fmt.Println("wufuqiang")
 }
