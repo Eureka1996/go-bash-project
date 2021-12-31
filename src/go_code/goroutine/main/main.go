@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"go_base/src/go_code/goroutine/gorouteUtils"
 	"runtime"
 	"strconv"
 	"time"
@@ -13,9 +14,7 @@ func goroutineTest() {
 		time.Sleep(time.Second * 2)
 	}
 }
-
-func main() {
-
+func firstGorouteTest() {
 	fmt.Println("CPU个数：", runtime.NumCPU())
 
 	// 设置使用多少CPU来运行go程序
@@ -27,4 +26,9 @@ func main() {
 		fmt.Println("main function ", strconv.Itoa(i))
 		time.Sleep(time.Second)
 	}
+}
+
+func main() {
+
+	gorouteUtils.GorouteTest1()
 }

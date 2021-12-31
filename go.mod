@@ -1,4 +1,4 @@
-module project2
+module go_base
 
 go 1.17
 
