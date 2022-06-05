@@ -6,7 +6,7 @@ import (
 )
 
 func WriteData(intChan chan int) {
-	for i := 1; i <= 50; i++ {
+	for i := 1; i <= 10; i++ {
 		intChan <- i
 		fmt.Println("writeData = ", i)
 		time.Sleep(time.Second)
@@ -24,9 +24,10 @@ func ReadData(intChan chan int, exitChan chan bool) {
 		time.Sleep(time.Second * 5)
 	}
 	exitChan <- true
-	close(intChan)
+	close(exitChan)
 }
 
+// 通过channel实现协程之间的通信
 func GorouteTest1() {
 
 	intChan := make(chan int, 10)
@@ -42,4 +43,12 @@ func GorouteTest1() {
 		}
 	}
 
+}
+
+func CreateChan() {
+	unbuffered := make(chan int)   // 整型无缓冲通道
+	buffered := make(chan int, 10) // 整型有缓冲通道
+
+	unbuffered <- 10
+	buffered <- 9
 }
