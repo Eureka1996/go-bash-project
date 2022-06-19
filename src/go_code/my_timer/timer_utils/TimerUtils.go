@@ -36,7 +36,7 @@ func TimerTest2() {
 		<-timer.C
 		fmt.Println("Timer expired")
 	}()
-
+	// stop后，上述协程直接不执行
 	stop := timer.Stop()
 
 	if stop {
