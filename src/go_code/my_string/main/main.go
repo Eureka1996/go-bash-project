@@ -16,5 +16,6 @@ func main() {
 	//m := &myString{}
 	//fmt.Println(m.Name == "")
 	//fmt.Println(m.Name)
-	string_utils.StringSplit2Interface()
+	//string_utils.StringSplit2Interface()
+	string_utils.StringLength()
 }
