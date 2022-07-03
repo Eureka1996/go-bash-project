@@ -31,6 +31,7 @@ func GetHttpHeader(response http.ResponseWriter, request *http.Request) {
 }
 
 func GetHttpParam(response http.ResponseWriter, request *http.Request) {
+	// 必须有ParseForm
 	request.ParseForm()
 	fmt.Fprintln(response, request.Form)
 
@@ -49,4 +50,10 @@ func GetHttpBody(response http.ResponseWriter, request *http.Request) {
 		fmt.Println(string(allBody))
 		fmt.Fprintln(response, "请求的Body：", string(allBody))
 	}
+}
+
+func GetHttpQuery(response http.ResponseWriter, request *http.Request) {
+	values := request.URL.Query()
+	fmt.Fprintf(response, "query is %v \n", values)
+
 }
