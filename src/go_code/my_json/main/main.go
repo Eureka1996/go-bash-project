@@ -13,7 +13,7 @@ import (
  */
 
 func main() {
-	json_utils.Join()
+	json_utils.TableColumn2Upper()
 }
 
 func main1() {
